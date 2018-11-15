@@ -1,4 +1,4 @@
 # Ignore everything in this directory
-*
+*dataset.pkl
 # Except this file
 !.gitignore
