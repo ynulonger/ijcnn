@@ -18,6 +18,7 @@ import tensorflow as tf
 import numpy as np
 import time
 import math
+import scipy.io as sio
 
 
 final_fuse = "concat"
@@ -276,7 +277,7 @@ logdir = "my_tensorboard"
 train_writer = tf.summary.FileWriter("log/"+logdir+"/train")
 test_writer = tf.summary.FileWriter("log/"+logdir+"/test")
 
-fold = 10
+fold = 5
 for curr_fold in range(fold):
     fold_size = cnn_datasets.shape[0]//fold
     indexes_list = [i for i in range(len(cnn_datasets))]
@@ -376,7 +377,7 @@ for curr_fold in range(fold):
 
                 for j in range(test_accuracy_batch_num):
                     start = j * batch_size
-                    print(start)
+                    # print(start)
                     if (j+1)*batch_size>test_y.shape[0]:
                         offset = test_y.shape[0] % batch_size
                     else:
@@ -485,6 +486,22 @@ for curr_fold in range(fold):
             roc.to_excel(writer, str(key), index=False)
             i += 1
         writer.save()
+        # save model
+        model_dict= {}
+        parameter_count=0
+        
+        for variable in tf.trainable_variables():
+            print(variable.name,"-->",variable.get_shape())
+            count = 1
+            for dim in variable.get_shape().as_list():
+                count = count * dim
+            parameter_count = parameter_count+count
+            model_dict[variable.name]=session.run(variable)
+        sio.savemat("PCRNN_model_"+str(parameter_count)+".mat",model_dict)
+        print("----------------------------------------------------------------")
+        print("------------------total parameters",parameter_count,"-----------------------")
+        print("----------------------------------------------------------------")
+        
         # save model
         '''
         saver = tf.train.Saver()
