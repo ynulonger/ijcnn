@@ -19,8 +19,6 @@ This repository contains the tensorflow implementation for the paper: "Emotion R
 + pickle
 + sk-learn
 + pickle
-+ tensorflow (1.4 version)
-+ import xlrd
-+ import xlwt
-
-If you have any questions, please contact yilongyang@stu.xmu.edu.cn
++ tensorflow (1.4 or higher version)
++ xlrd
++ xlwt
