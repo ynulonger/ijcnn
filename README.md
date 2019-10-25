@@ -1,5 +1,5 @@
 # Code for IJCNN 2018 submission
-This repository contains the tensorflow implementation for the paper: "Emotion Recognition from Multi-Channel EEG through Parallel Convolutional Recurrent Neural Network"
+This repository contains the tensorflow implementation for the paper: "[Emotion Recognition from Multi-Channel EEG through Parallel Convolutional Recurrent Neural Network](https://ieeexplore.ieee.org/document/8489331)"
 ## About the paper
 * Title: [Emotion Recognition from Multi-Channel EEG through Parallel Convolutional Recurrent Neural Network](https://ieeexplore.ieee.org/document/8489331)
 * Authors: [Yilong Yang](https://ynulonger.github.io/), Qingfeng Wu, Ming Qiu, Yingdong Wang, Xiaowei Chen
